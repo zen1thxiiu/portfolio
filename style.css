@@ -42,7 +42,7 @@
   --radius-full: 9999px;
 
   /* 字體系統 */
-  --font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
+  --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", "Segoe UI", Roboto, "Microsoft JhengHei", sans-serif;
   --transition-smooth: all 0.28s cubic-bezier(0.2, 0, 0.1, 1);
 }
 
@@ -60,11 +60,13 @@ html {
 
 body {
   font-family: var(--font-family);
+  font-weight: 400;
   background-color: var(--bg-page);
   color: var(--text-main);
   line-height: 1.7;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.015em;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* 容器與版面佈局 */
@@ -123,7 +125,7 @@ body {
   font-size: 1.02rem;
   color: var(--text-secondary);
   line-height: 1.8;
-  font-weight: 350;
+  font-weight: 400;
 }
 
 /* 按鈕樣式 (WIX 1887 風格膠囊按鈕) */
@@ -363,7 +365,7 @@ body {
 
 .hero-cn-title {
   font-size: 1.35rem;
-  font-weight: 350;
+  font-weight: 450;
   letter-spacing: 0.25em;
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 1.8rem;
@@ -373,15 +375,15 @@ body {
   font-size: 0.95rem;
   letter-spacing: 0.18em;
   color: var(--accent-teal);
-  font-weight: 400;
+  font-weight: 450;
 }
 
 /* 副標職稱 */
 .hero-tagline {
   font-size: 1.05rem;
   letter-spacing: 0.12em;
-  color: rgba(255, 255, 255, 0.8);
-  font-weight: 350;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 450;
   margin-bottom: 2.2rem;
   display: flex;
   align-items: center;
@@ -459,7 +461,7 @@ body {
   font-size: 1.05rem;
   color: var(--text-secondary);
   line-height: 1.8;
-  font-weight: 350;
+  font-weight: 400;
   margin: 0;
 }
 
@@ -686,10 +688,10 @@ body {
 }
 
 .strength-desc {
-  font-size: 0.8rem;
+  font-size: 0.84rem;
   color: var(--text-secondary);
-  line-height: 1.5;
-  font-weight: 350;
+  line-height: 1.55;
+  font-weight: 400;
 }
 
 /* ========================================================
@@ -769,8 +771,8 @@ body {
 .resume-role-desc {
   font-size: 0.88rem;
   color: var(--text-secondary);
-  line-height: 1.6;
-  font-weight: 350;
+  line-height: 1.65;
+  font-weight: 400;
 }
 
 .resume-org {
@@ -884,7 +886,7 @@ body {
   color: var(--text-secondary);
   line-height: 1.75;
   margin-bottom: 1.75rem;
-  font-weight: 350;
+  font-weight: 400;
 }
 
 /* 亮點指標方塊 (WIX 極簡風線條) */
@@ -1050,7 +1052,7 @@ body {
   font-size: 0.94rem;
   color: var(--text-secondary);
   line-height: 1.8;
-  font-weight: 350;
+  font-weight: 400;
 }
 
 .tech-badges-list {
@@ -1097,7 +1099,7 @@ body {
 .report-frame-desc {
   font-size: 0.88rem;
   color: var(--text-secondary);
-  font-weight: 350;
+  font-weight: 400;
 }
 
 .report-thumbs-grid {
@@ -1173,10 +1175,10 @@ body {
 }
 
 .star-text-content p {
-  font-size: 0.86rem;
+  font-size: 0.88rem;
   color: var(--text-secondary);
   line-height: 1.65;
-  font-weight: 350;
+  font-weight: 400;
 }
 
 .reflection-highlight-box {
@@ -1205,7 +1207,7 @@ body {
   font-size: 0.88rem;
   color: var(--text-main);
   line-height: 1.7;
-  font-weight: 350;
+  font-weight: 400;
 }
 
 /* ========================================================
@@ -1275,7 +1277,7 @@ body {
   font-size: 0.92rem;
   color: var(--text-secondary);
   line-height: 1.75;
-  font-weight: 350;
+  font-weight: 400;
 }
 
 /* ========================================================
@@ -1306,7 +1308,7 @@ body {
   color: var(--text-secondary);
   max-width: 620px;
   margin: 0 auto 3rem auto;
-  font-weight: 350;
+  font-weight: 400;
 }
 
 .contact-channels-grid {
@@ -1557,7 +1559,7 @@ body {
 .mock-author {
   font-size: 0.85rem;
   color: var(--text-secondary);
-  font-weight: 350;
+  font-weight: 400;
 }
 
 .mock-doc-divider {
@@ -1574,7 +1576,7 @@ body {
   gap: 0.6rem;
   font-size: 0.88rem;
   color: var(--text-secondary);
-  font-weight: 350;
+  font-weight: 400;
 }
 
 .mock-toc li {
@@ -1591,7 +1593,7 @@ body {
   border-radius: 4px;
   font-size: 0.86rem;
   margin-top: 1.5rem;
-  font-weight: 350;
+  font-weight: 400;
 }
 
 .modal-footer {
@@ -1608,7 +1610,7 @@ body {
 .modal-tip {
   font-size: 0.8rem;
   color: var(--text-muted);
-  font-weight: 350;
+  font-weight: 400;
 }
 
 /* 吐司通知 Toast */
