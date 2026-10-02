@@ -1,0 +1,1757 @@
+/* ==========================================================================
+   WIX 1887 (Actor & Model Resume) 風格改版樣式表
+   主題：莫蘭迪灰藍色系 (Morandi Gray-Blue / Slate & Mist Palette)
+   特色：低飽和溫潤質感、留白充裕、全幅大尺寸英雄視覺、寬字距大寫排版 (Wide Tracking)
+   標誌性元素：沉穩石板墨灰、柔和霧灰白、與高級雅緻「莫蘭迪灰藍 (Morandi Slate Blue)」圓點點綴
+   ========================================================================== */
+
+:root {
+  /* 莫蘭迪灰藍調色盤 (Morandi Gray-Blue Palette) */
+  --bg-page: #F8FAFC;              /* 溫潤莫蘭迪柔白灰底色，低刺眼、沉靜耐看 */
+  --bg-surface: #FFFFFF;           /* 純淨卡片表面 */
+  --bg-alt: #EFF3F7;               /* 莫蘭迪次級冷灰襯底 */
+  --bg-subtle: #E4ECF2;            /* 柔和霧灰襯底 */
+  --bg-subtle-hover: #D8E2EA;
+
+  /* 標誌性點綴色：莫蘭迪霧霾灰藍 (Morandi Slate Blue) */
+  --accent-teal: #4F6D85;          /* 沉靜雅緻的莫蘭迪灰藍色 (替代過度明亮的青綠) */
+  --accent-teal-hover: #3C5468;    /* 深階莫蘭迪石板藍 */
+  --accent-teal-light: #EBF1F6;    /* 極淡霧灰藍底色 (徽章與標籤襯底) */
+  --accent-teal-glow: rgba(79, 109, 133, 0.22);
+  --accent-blue-soft: #6E889D;    /* 溫柔次級霧霾藍 */
+
+  /* 主題深色與文字：莫蘭迪深墨灰藍 (告別純黑生硬感，呈現高級霧面冷調) */
+  --text-main: #22303E;            /* 主要字色 (沉穩深墨灰藍) */
+  --text-secondary: #536474;       /* 次要描述 (中階石板霧灰) */
+  --text-muted: #8292A2;           /* 弱化註釋與大寫副標 (淡霧藍灰) */
+
+  /* 邊框線條 (低飽和冷灰藍細線) */
+  --border-color: #DCE4EC;
+  --border-light: #EBF0F5;
+  --border-dark: #C2D0DD;
+
+  /* 陰影 (柔和石板色陰影) */
+  --shadow-subtle: 0 1px 3px rgba(34, 48, 62, 0.04);
+  --shadow-card: 0 4px 20px -2px rgba(34, 48, 62, 0.06);
+  --shadow-hover: 0 12px 30px -4px rgba(34, 48, 62, 0.1);
+
+  /* 圓角 (維持 1887 簡約俐落，小圓角與大膠囊按鈕結合) */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  /* 字體系統 */
+  --font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
+  --transition-smooth: all 0.28s cubic-bezier(0.2, 0, 0.1, 1);
+}
+
+/* 基礎重置 */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 容器與版面佈局 */
+.container {
+  width: 100%;
+  max-width: 1160px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.section {
+  padding: 6.5rem 0;
+}
+
+.section-alt {
+  background-color: var(--bg-alt);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+/* WIX 1887 特色標題排版 (大字距、大寫、精緻青綠圓點) */
+.section-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 4rem auto;
+}
+
+.section-eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.25em; /* 寬字距 */
+  color: var(--accent-teal);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-main);
+  margin-bottom: 0.85rem;
+  position: relative;
+}
+
+.section-title .teal-dot {
+  color: var(--accent-teal);
+  font-weight: 700;
+}
+
+.section-desc {
+  font-size: 1.02rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-weight: 350;
+}
+
+/* 按鈕樣式 (WIX 1887 風格膠囊按鈕) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.8rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  white-space: nowrap;
+}
+
+.btn-sm {
+  padding: 0.45rem 1.15rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+
+.btn-lg {
+  padding: 0.95rem 2.4rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+}
+
+.btn-teal {
+  background: var(--accent-teal);
+  color: #FFFFFF;
+  border-color: var(--accent-teal);
+}
+
+.btn-teal:hover {
+  background: var(--accent-teal-hover);
+  border-color: var(--accent-teal-hover);
+  box-shadow: 0 4px 16px var(--accent-teal-glow);
+  transform: translateY(-1px);
+}
+
+.btn-outline-white {
+  background: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+}
+
+.btn-outline-white:hover {
+  background: #FFFFFF;
+  color: var(--text-main);
+  border-color: #FFFFFF;
+}
+
+.btn-outline-dark {
+  background: transparent;
+  color: var(--text-main);
+  border-color: var(--border-color);
+}
+
+.btn-outline-dark:hover {
+  background: var(--bg-alt);
+  border-color: var(--text-main);
+}
+
+/* ========================================================
+   1. 頂部導覽列 (WIX 1887 頂部橫列：左側社群, 中右側導覽)
+   ======================================================== */
+.wix-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-light);
+  transition: var(--transition-smooth);
+}
+
+.header-container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 1.1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 左側社群與聯絡快選 */
+.header-social {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.social-icon-link {
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+  opacity: 0.85;
+}
+
+.social-icon-link:hover {
+  color: var(--accent-teal);
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.social-icon-link svg {
+  width: 17px;
+  height: 17px;
+}
+
+/* 中右側主選單 */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-item-link {
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  transition: var(--transition-smooth);
+  position: relative;
+  padding: 0.4rem 0;
+}
+
+.nav-item-link:hover,
+.nav-item-link.active {
+  color: var(--accent-teal);
+}
+
+.nav-item-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--accent-teal);
+}
+
+/* 漢堡選單按鈕 (手機版) */
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.mobile-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text-main);
+  transition: var(--transition-smooth);
+}
+
+/* ========================================================
+   2. 主視覺區 Hero Section (WIX 1887 標誌性大片背景與大字排版)
+   ======================================================== */
+.wix-hero {
+  position: relative;
+  min-height: 82vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #FFFFFF;
+  background-color: #1E2B37;
+  overflow: hidden;
+}
+
+/* 背景大圖遮罩 (莫蘭迪冷灰藍深調氛圍) */
+.hero-bg-layer {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1920&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center center;
+  transform: scale(1.02);
+  filter: brightness(0.32) contrast(1.05) saturate(0.85);
+}
+
+/* 漸層漸變層 (莫蘭迪深石板藍夜霧漸層) */
+.hero-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(38, 54, 70, 0.5) 0%, rgba(24, 35, 47, 0.92) 100%);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  padding: 4rem 1.5rem;
+}
+
+/* 經典 WIX 1887 大字距英文名 + 標誌青綠圓點 */
+.hero-main-name {
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: 0.35em; /* 寬字距核心特徵 */
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  line-height: 1.2;
+}
+
+.hero-main-name .teal-dot {
+  color: var(--accent-teal);
+  display: inline-block;
+  margin-left: -0.15em;
+  margin-right: 0.15em;
+}
+
+.hero-cn-title {
+  font-size: 1.35rem;
+  font-weight: 350;
+  letter-spacing: 0.25em;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.8rem;
+}
+
+.hero-cn-title span {
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  color: var(--accent-teal);
+  font-weight: 400;
+}
+
+/* 副標職稱 */
+.hero-tagline {
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 350;
+  margin-bottom: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.hero-tagline span {
+  color: var(--accent-teal);
+}
+
+.hero-pills {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero-pill-item {
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  padding: 0.38rem 1rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(6px);
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+}
+
+/* ========================================================
+   3. 關於我 About Section (雜誌社論對比佈局)
+   ======================================================== */
+.about-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 285px;
+  gap: 3.5rem;
+  align-items: center;
+  margin-bottom: 2.75rem;
+}
+
+.about-lead-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-lead-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.about-headline {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.about-headline .teal-dot {
+  color: var(--accent-teal);
+}
+
+.about-lead-p {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-weight: 350;
+  margin: 0;
+}
+
+.about-lead-p strong {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.about-photo-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.about-photo-card {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 0.85rem;
+  box-shadow: var(--shadow-card);
+}
+
+.about-photo-frame {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--bg-subtle);
+}
+
+.about-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.4s ease;
+}
+
+.about-photo-card:hover .about-photo-frame img {
+  transform: scale(1.03);
+}
+
+.about-photo-badge {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  right: 1.25rem;
+  background: rgba(34, 48, 62, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-full);
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.about-photo-badge span {
+  color: var(--accent-teal);
+}
+
+/* 位於大頭照下方的個人聯絡卡片 (支援完整全寬 Email 顯示) */
+.profile-contact-card {
+  width: 100%;
+  max-width: 300px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.9rem 1.1rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.profile-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.profile-contact-icon {
+  font-size: 1.1rem;
+  line-height: 1.2;
+  margin-top: 0.15rem;
+}
+
+.profile-contact-meta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.contact-label-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.2rem;
+}
+
+.profile-contact-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--accent-teal);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.profile-contact-link,
+.profile-contact-val {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-main);
+  text-decoration: none;
+  white-space: nowrap;
+  display: inline-block;
+  line-height: 1.35;
+}
+
+.profile-contact-link:hover {
+  color: var(--accent-teal);
+  text-decoration: underline;
+}
+
+.btn-copy-mini {
+  background: var(--bg-alt);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-copy-mini:hover {
+  background: var(--accent-teal);
+  color: #fff;
+  border-color: var(--accent-teal);
+}
+
+/* WIX 1887 特色：條列式屬性表 (Specification Table，獨立滿版，不再與照片並排) */
+.specs-table {
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.5rem 0;
+  margin-bottom: 2.75rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem 2rem;
+}
+
+.spec-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.spec-key {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent-teal);
+}
+
+.spec-val {
+  font-size: 0.95rem;
+  color: var(--text-main);
+  font-weight: 450;
+}
+
+.about-strengths-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.15rem;
+}
+
+.strength-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--accent-teal);
+  background: var(--accent-teal-light);
+  padding: 0.18rem 0.6rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.45rem;
+}
+
+.strength-box {
+  background: var(--bg-alt);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 1.15rem;
+  transition: var(--transition-smooth);
+}
+
+.strength-box:hover {
+  border-color: var(--accent-teal);
+  transform: translateY(-2px);
+}
+
+.strength-icon {
+  font-size: 1.3rem;
+  color: var(--accent-teal);
+  margin-bottom: 0.4rem;
+}
+
+.strength-title {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 0.3rem;
+}
+
+.strength-desc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  font-weight: 350;
+}
+
+/* ========================================================
+   4. 經典 RESUME 區塊 (WIX 1887 標誌性簡歷表結構)
+   ======================================================== */
+.resume-section-wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.resume-category {
+  border-top: 2px solid var(--text-main);
+  padding-top: 1.25rem;
+}
+
+.resume-category-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--text-main);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.resume-category-title span {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--accent-teal);
+  letter-spacing: 0.1em;
+}
+
+.resume-table {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.resume-row {
+  display: grid;
+  grid-template-columns: 140px 1.5fr 1fr;
+  align-items: baseline;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-light);
+  gap: 1.5rem;
+}
+
+.resume-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.resume-year {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.resume-role-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.resume-role-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.resume-role-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-weight: 350;
+}
+
+.resume-org {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--accent-teal);
+  text-align: right;
+}
+
+/* ========================================================
+   5. 專案成果展示區 (SHOWREELS & CASE STUDIES)
+   ======================================================== */
+.filter-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.filter-pill {
+  padding: 0.45rem 1.2rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: var(--radius-full);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.filter-pill.active, .filter-pill:hover {
+  background: var(--text-main);
+  color: #FFFFFF;
+  border-color: var(--text-main);
+}
+
+.projects-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.project-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2.75rem;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-smooth);
+}
+
+.project-card:hover {
+  box-shadow: var(--shadow-hover);
+  border-color: #CBD5E1;
+}
+
+.project-meta-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.project-tags-group {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.tag-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.85rem;
+  border-radius: var(--radius-full);
+  background: var(--accent-teal-light);
+  color: var(--accent-teal);
+}
+
+.tag-year {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background: var(--bg-alt);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-full);
+}
+
+.project-role-text {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  font-weight: 450;
+}
+
+.project-title {
+  font-size: 1.65rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-main);
+  margin-bottom: 0.75rem;
+}
+
+.project-pitch {
+  font-size: 1.02rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 1.75rem;
+  font-weight: 350;
+}
+
+/* 亮點指標方塊 (WIX 極簡風線條) */
+.metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  background: var(--bg-alt);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* 競賽卡片標題/指標與頒獎照片並排網格 */
+.competition-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 2.25rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.competition-hero-main .project-pitch {
+  margin-bottom: 1.25rem;
+}
+
+.competition-hero-main .metrics-strip {
+  margin-bottom: 0;
+}
+
+.competition-award-card {
+  position: relative;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.65rem;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-smooth);
+}
+
+.competition-award-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+.award-photo-frame {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: #111;
+}
+
+.award-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.competition-award-card:hover .award-photo-frame img {
+  transform: scale(1.03);
+}
+
+.award-photo-badge {
+  margin-top: 0.5rem;
+  text-align: center;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #856404;
+  background: #FFF3CD;
+  border: 1px solid #FFEEBA;
+  padding: 0.35rem 0.6rem;
+  border-radius: var(--radius-sm);
+}
+
+.metric-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.metric-number {
+  font-size: 1.65rem;
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+.metric-name {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+  font-weight: 400;
+}
+
+/* 專案卡片切換頁籤 */
+.case-tabs {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 1.8rem;
+  overflow-x: auto;
+}
+
+.case-tab-btn {
+  padding: 0.75rem 1.4rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  white-space: nowrap;
+}
+
+.case-tab-btn.active {
+  color: var(--accent-teal);
+  border-bottom-color: var(--accent-teal);
+  font-weight: 600;
+}
+
+.case-tab-btn:hover:not(.active) {
+  color: var(--text-main);
+}
+
+.case-pane {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.case-pane.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.case-body-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.case-block h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 0.55rem;
+}
+
+.case-block p {
+  font-size: 0.94rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-weight: 350;
+}
+
+.tech-badges-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.tech-item-badge {
+  font-size: 0.8rem;
+  font-weight: 450;
+  background: var(--bg-alt);
+  color: var(--text-main);
+  padding: 0.3rem 0.85rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-light);
+}
+
+/* 報告預覽框 */
+.report-frame-box {
+  background: var(--bg-alt);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+}
+
+.report-frame-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.report-frame-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 0.3rem;
+}
+
+.report-frame-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  font-weight: 350;
+}
+
+.report-thumbs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.report-thumb-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 1.1rem;
+  transition: var(--transition-smooth);
+}
+
+.report-thumb-card:hover {
+  border-color: var(--accent-teal);
+  transform: translateY(-2px);
+}
+
+.thumb-page-num {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--accent-teal);
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.thumb-subject {
+  font-size: 0.86rem;
+  font-weight: 550;
+  color: var(--text-main);
+  line-height: 1.45;
+}
+
+/* STAR 面試復盤模型 (極簡網格) */
+.star-layout-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.star-card-unit {
+  display: flex;
+  gap: 1rem;
+  background: var(--bg-alt);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+}
+
+.star-initial {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--text-main);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.star-text-content h5 {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 0.35rem;
+}
+
+.star-text-content p {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  font-weight: 350;
+}
+
+.reflection-highlight-box {
+  background: var(--accent-teal-light);
+  border-left: 3px solid var(--accent-teal);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 1.5rem;
+}
+
+.reflection-heading {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--accent-teal-hover);
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.reflection-bullets {
+  padding-left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.reflection-bullets li {
+  font-size: 0.88rem;
+  color: var(--text-main);
+  line-height: 1.7;
+  font-weight: 350;
+}
+
+/* ========================================================
+   6. 面試問答手風琴 Q&A (CHEAT-SHEET)
+   ======================================================== */
+.qa-wrap {
+  max-width: 880px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.qa-card {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.qa-trigger {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.35rem 1.75rem;
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 0.98rem;
+  font-weight: 550;
+  color: var(--text-main);
+  cursor: pointer;
+  text-align: left;
+  transition: var(--transition-smooth);
+}
+
+.qa-trigger:hover {
+  background: var(--bg-alt);
+}
+
+.qa-arrow {
+  font-size: 1.2rem;
+  color: var(--accent-teal);
+  transition: transform 0.3s ease;
+}
+
+.qa-card.open .qa-arrow {
+  transform: rotate(45deg);
+}
+
+.qa-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  background: var(--bg-alt);
+}
+
+.qa-card.open .qa-answer {
+  max-height: 350px;
+  padding: 1.25rem 1.75rem 1.5rem 1.75rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.qa-answer p {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  font-weight: 350;
+}
+
+/* ========================================================
+   7. 聯絡方式與 REPRESENTATION
+   ======================================================== */
+.representation-box {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 4rem 3rem;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+}
+
+.representation-title {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-main);
+  margin-bottom: 0.85rem;
+}
+
+.representation-sub {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  max-width: 620px;
+  margin: 0 auto 3rem auto;
+  font-weight: 350;
+}
+
+.contact-channels-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 3rem;
+  text-align: left;
+}
+
+.channel-cell {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 1.4rem;
+  background: var(--bg-alt);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  transition: var(--transition-smooth);
+}
+
+.channel-cell:hover {
+  border-color: var(--accent-teal);
+}
+
+.channel-icon {
+  font-size: 1.35rem;
+  color: var(--accent-teal);
+}
+
+.channel-meta {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.channel-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.channel-link {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-main);
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.channel-link:hover {
+  color: var(--accent-teal);
+}
+
+/* ========================================================
+   8. 頁尾 Footer
+   ======================================================== */
+.wix-footer {
+  border-top: 1px solid var(--border-light);
+  padding: 3rem 0;
+  background: var(--bg-surface);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-brand {
+  font-size: 0.88rem;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.footer-brand strong {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.footer-top-link {
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-main);
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.footer-top-link:hover {
+  color: var(--accent-teal);
+}
+
+/* ========================================================
+   9. 互動彈窗 Modal
+   ======================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(24, 35, 47, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-dialog {
+  background: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  width: 95%;
+  max-width: 980px;
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-dialog {
+  transform: translateY(0);
+}
+
+.modal-header {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-teal);
+  background: var(--accent-teal-light);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+}
+
+.modal-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-top: 0.35rem;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  color: var(--text-main);
+}
+
+.modal-body {
+  padding: 1.75rem 2rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.pdf-viewer-placeholder {
+  background: var(--bg-alt);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.pdf-toolbar {
+  background: #E2E8F0;
+  padding: 0.6rem 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.pdf-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.pdf-tool-btn {
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.pdf-canvas-mock {
+  padding: 2.5rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.mock-doc-page {
+  background: #FFFFFF;
+  width: 100%;
+  max-width: 660px;
+  padding: 3rem 2.5rem;
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  border: 1px solid var(--border-light);
+}
+
+.mock-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent-teal);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.mock-h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0.5rem 0;
+  color: var(--text-main);
+}
+
+.mock-author {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 350;
+}
+
+.mock-doc-divider {
+  height: 2px;
+  background: var(--accent-teal-light);
+  margin: 1.5rem 0;
+}
+
+.mock-toc {
+  padding-left: 1.25rem;
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  font-weight: 350;
+}
+
+.mock-toc li {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dotted var(--border-color);
+  padding-bottom: 0.25rem;
+}
+
+.mock-callout-box {
+  background: var(--accent-teal-light);
+  border-left: 3px solid var(--accent-teal);
+  padding: 1rem;
+  border-radius: 4px;
+  font-size: 0.86rem;
+  margin-top: 1.5rem;
+  font-weight: 350;
+}
+
+.modal-footer {
+  padding: 1rem 2rem;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-alt);
+  border-bottom-left-radius: var(--radius-lg);
+  border-bottom-right-radius: var(--radius-lg);
+}
+
+.modal-tip {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 350;
+}
+
+/* 吐司通知 Toast */
+.toast-message {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--text-main);
+  color: #FFFFFF;
+  padding: 0.75rem 1.4rem;
+  border-radius: var(--radius-full);
+  font-size: 0.88rem;
+  font-weight: 500;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  z-index: 3000;
+  transform: translateY(30px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.toast-message.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ========================================================
+   10. 響應式斷點 RWD
+   ======================================================== */
+@media (max-width: 992px) {
+  .hero-main-name {
+    font-size: 2.6rem;
+    letter-spacing: 0.25em;
+  }
+
+  .about-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+
+  .about-photo-col {
+    order: -1;
+  }
+
+  .about-photo-card,
+  .profile-contact-card {
+    max-width: 285px;
+    margin: 0 auto;
+  }
+
+  .specs-table {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem 1.5rem;
+  }
+
+  .resume-row {
+    grid-template-columns: 110px 1fr;
+  }
+
+  .resume-org {
+    grid-column: 2 / 3;
+    text-align: left;
+    margin-top: -0.5rem;
+  }
+
+  .about-strengths-row {
+    grid-template-columns: 1fr;
+  }
+
+  .competition-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .competition-award-card {
+    max-width: 440px;
+    margin: 0 auto;
+  }
+
+  .star-layout-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    padding: 0.9rem 1.5rem;
+  }
+
+  .header-social {
+    display: none;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: #FFFFFF;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-120%);
+    transition: transform 0.3s ease;
+  }
+
+  .nav-menu.mobile-open {
+    transform: translateY(0);
+  }
+
+  .mobile-toggle {
+    display: flex;
+  }
+
+  .hero-main-name {
+    font-size: 1.95rem;
+    letter-spacing: 0.2em;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .metrics-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .report-thumbs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-channels-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    padding: 1.5rem;
+  }
+
+  .specs-table {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
