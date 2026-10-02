@@ -1,8 +1,3 @@
-# 柔和高質感面試個人作品集與專題復盤網站 🌿
-
-專為求職面試打造的個人網站框架。整體風格捨棄冰冷刺眼的黑底或死板純白，採用**燕麥米白（Oatmeal Cream）**作為主底色，搭配典雅沉穩的**鼠尾草綠（Sage Green）**與溫暖**陶土珊瑚橘（Terracotta）**，傳遞兼具專業度、親和力與自省深度的視覺體驗。
-
----
 
 ## 🌟 網站的核心架構亮點（面試必備）
 
@@ -94,12 +89,4 @@ open /Users/yunching/.gemini/antigravity/scratch/interview-portfolio/index.html
 - `--text-secondary`: `#5E5A54` (中階暖灰)
 
 ---
-
-## 🌐 免費上線發布建議（讓面試官直接點網址看）
-
-當您填完資料後，推薦以下兩種最方便的免費部署管道：
-1. **GitHub Pages**：
-   - 建立一個 GitHub 倉庫（Repo），將資料夾檔案推上去。
-   - 在 Settings -> Pages 開啟部署，即可獲得免費的 `https://<你的帳號>.github.io/<專案名>` 專屬面試網站網址！
-2. **Netlify Drop / Vercel**：
-   - 直接把整個 `interview-portfolio` 資料夾拖曳到 Netlify Drop，10 秒內即可自動上線。
+   - 複製此網址即可打開 https://zen1thxiiu.github.io/portfolio/
